@@ -53,7 +53,7 @@
 
                     <li class="dropdown dropdown-notification nav-item dropdown-notifications">
                         <a class="nav-link nav-link-label" href="#" data-toggle="dropdown"><i class="ficon ft-bell"></i>
-                            <span class="badge badge-pill badge-default badge-success badge-default badge-up badge-glow notif-count" data-count="{{ App\Models\Notify::count() }}">{{ App\Models\Notify::count() }}</span>
+                            <span class="badge badge-pill badge-default badge-success badge-default badge-up badge-glow notif-count" data-count=""></span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
                             <li class="dropdown-menu-header">
@@ -61,34 +61,31 @@
                                     <span class="grey darken-2">الاشعارات</span>
 
                                 </h6>
-                               <a href="{{ route('admin.delete.all.notify.comment.course') }}"> <span
+                               <a href=""> <span
                                     class="notification-tag badge badge-default badge-danger float-right m-0">أزالة جميع الاشعارات</span></a>
                             </li>
                             <li class="scrollable-container media-list w-100">
 
-                            @if(App\Models\Notify::count() > 0)
-                            @foreach (App\Models\Notify::all()->sortByDesc('created_at') as $notify)
-                            <a href="{{ route('admin.delete.notify.comment.course',$notify->id) }}" class="close" data-dismiss="modal" aria-label="Close">
+
+                            <a href="" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">×</span>
                             </a>
 
-                            <a href="{{ route('admin.delete.and.redirect.comment.course',$notify->id) }}">
+                            <a href="">
                                     <div class="media">
                                         <div class="media-left align-self-center"><i
                                             class="ft-check-circle icon-bg-circle bg-cyan"></i></div>
                                         <div class="media-body">
-                                            <h6 class="media-heading">علق - {{ $notify->client_first_name }} {{ $notify->client_last_name }} -  علي دورة {{ $notify->course_name }}</h6>
-                                            <p><div style="word-wrap: break-word;width:260px;">{{ $notify->comment }}</div></p>
+                                            <h6 class="media-heading">asdasdasda</h6>
+                                            <p><div style="word-wrap: break-word;width:260px;"></div></p>
                                             <small>
                                                 <time class="media-meta text-muted"
-                                                      datetime="2015-06-11T18:29:20+08:00">{{ $notify->created_at }}
+                                                      datetime="2015-06-11T18:29:20+08:00">
                                                 </time>
                                             </small>
                                         </div>
                                     </div>
                                 </a>
-                            @endforeach
-                            @endif
                             </li>
                             <li class="dropdown-menu-footer"><a class="dropdown-item text-muted text-center"
                                                                 href="javascript:void(0)">Read all notifications</a>
@@ -98,44 +95,43 @@
                     <li class="dropdown dropdown-notification nav-item">
                         <a class="nav-link nav-link-label" href="#" data-toggle="dropdown"><i
                             class="ficon ft-mail"> </i>
-                             <span class="badge badge-pill badge-default badge-warning badge-default badge-up badge-glow notif-count" data-count="">{{ App\Models\Contact::where('state' , '1')->get()->count() }}</span>
+                             <span class="badge badge-pill badge-default badge-warning badge-default badge-up badge-glow notif-count" data-count=""></span>
 
                         </a>
-                        @if(App\Models\Contact::where('state' , '1')->get()->count() > 0)
                         <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
                             <li class="dropdown-menu-header">
                                 <h6 class="dropdown-header m-0">
                                     <span class="grey darken-2">الرسائل</span>
                                 </h6>
                                 <span
-                                    class="notification-tag badge badge-default badge-success float-right m-0">{{ App\Models\Contact::where('state' , '1')->get()->count() }} جديد</span>
+                                    class="notification-tag badge badge-default badge-success float-right m-0">جديد</span>
                             </li>
                             <li class="scrollable-container media-list w-100">
-                                @foreach ( App\Models\Contact::where('state' , '1')->orderBy('id', 'desc')->get()  as $ms)
-                                <a href="{{ route('admin.reply.contact',$ms->id) }}">
+
+                                <a href="">
                                     <div class="media">
                                         <div class="media-left">
                         <span class="avatar avatar-sm avatar-online rounded-circle">
-                          <img src="{{ asset('assets/front/img/clients/772559_user_512x512.png') }}"
+                          <img src=""
                                alt="avatar"><i></i></span>
                                         </div>
                                         <div class="media-body">
-                                            <h6 class="media-heading">{{ $ms->user_name }}</h6>
-                                            <p class="notification-text font-small-3 text-muted"><div style="word-wrap: break-word;width:260px;">{{ $ms->subject }}</div></p>
+                                            <h6 class="media-heading"></h6>
+                                            <p class="notification-text font-small-3 text-muted"><div style="word-wrap: break-word;width:260px;"></div></p>
                                             <small>
                                                 <time class="media-meta text-muted"
-                                                      datetime="2015-06-11T18:29:20+08:00">{{ $ms->created_at }}
+                                                      datetime="2015-06-11T18:29:20+08:00">
                                                 </time>
                                             </small>
                                         </div>
                                     </div>
-                                    @endforeach
+
                                 </a>
                             </li>
                             <li class="dropdown-menu-footer"><a class="dropdown-item text-muted text-center"
-                                                                href="{{ route('admin.get.contact.active') }}">عرض كل الرسائل النشطة</a></li>
+                                                                href="">عرض كل الرسائل النشطة</a></li>
                         </ul>
-                        @endif
+
                     </li>
                 </ul>
             </div>

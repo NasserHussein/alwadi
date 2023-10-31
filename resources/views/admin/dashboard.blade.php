@@ -3,7 +3,7 @@
 الرئيسية
 @endsection
 @section('content')
-{{-- <div class="app-content content">
+<div class="app-content content">
     <div class="content-wrapper">
         <div class="content-header row">
 <div class="content-body">
@@ -316,9 +316,5 @@
 </div>
 </div>
 </div>
-</div> --}}
-    <!-- Active Orders -->
-<div class="app-content content" style="background-image:url('assets/front/img/mfarag/2.jpg');background-position: center;background-size: contain;">
-<br>
 </div>
 @endsection
