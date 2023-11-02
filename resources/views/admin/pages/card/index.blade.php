@@ -1,20 +1,19 @@
 @extends('layouts.admin')
 @section('title')
-الدروس
+المعدات
 @endsection
 @section('content')
- <div class="app-content content">
+<div class="app-content content">
     <div class="content-wrapper">
         <div class="content-header row">
             <div class="content-header-left col-md-6 col-12 mb-2">
-                <h3 class="content-header-title">قسم الدروس للدورة المجانية</h3>
+                <h3 class="content-header-title"> المعدات </h3>
                 <div class="row breadcrumbs-top">
                     <div class="breadcrumb-wrapper col-12">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">الرئيسية</a>
-                            </li><li class="breadcrumb-item"><a href="{{ route('admin.get.free.courses') }}">الدورات المجانية</a>
                             </li>
-                            <li class="breadcrumb-item active"> دروس الدورة المجانية
+                            <li class="breadcrumb-item active"> المعدات
                             </li>
                         </ol>
                     </div>
@@ -28,7 +27,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title"><i class="ft-server"></i> جميع دروس الدورة المجانية وعددهم {{ $lessons->count() }} درس </h4>
+                                <h4 class="card-title"><i class="la la-group"></i> جميع المعدات المسجلة 222 معدة</h4>
                                 <a class="heading-elements-toggle"><i
                                         class="la la-ellipsis-v font-medium-3"></i></a>
                                 <div class="heading-elements">
@@ -40,56 +39,49 @@
                                     </ul>
                                 </div>
                             </div>
-
                             @include('admin.includes.alerts.success')
                             @include('admin.includes.alerts.errors')
-
                             <div class="card-content collapse show">
                                 <div class="card-body card-dashboard">
-                                    <table
-                                        class="table display nowrap table-striped table-bordered scroll-horizontal">
+                                    <table class=" display nowrap table-striped table-bordered scroll-horizontal"  style="width:auto;text-align: center">
                                         <thead>
-                                        <tr class="bg-success white">
-                                            <th>ID</th>
-                                            <th>الدروس</th>
-                                            <th>اسم الدرس</th>
-                                            <th>الفيديوهات</th>
-                                            <th style="text-align: center">الإجراءات</th>
+                                        <tr>
+                                            <th>إسم المعدة</th>
+                                            <th>رقم المعدة</th>
+                                            <th>النوع والموديل</th>
+                                            <th>الرقم المسلسل</th>
+                                            <th>السعة</th>
+                                            <th>تفاصيل</th>
+                                            <th>الأجرائات</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-
-
                                                 <tr>
-
-                                                    @isset($lessons)
-                                                    @foreach ($lessons as $lesson )
-                                                    <th><div style="word-wrap: break-word;width:40px;">{{ $lesson->id}}</div></th>
-                                                    <td><div style="word-wrap: break-word;width:80px;">{{ $lesson->lesson_number}}</div></td>
-                                                    <td><div style="word-wrap: break-word;width:100px;">{{ $lesson->lesson_name }}</div></td>
-                                                    <td><div style="word-wrap: break-word;width:100px;">{{ $lesson->lesson_Video }}</div></td>
+                                                    <td><div style="word-wrap: break-word;width:150px;"></div></td>
+                                                    <td><div style="word-wrap: break-word;width:90px;"></div></td>
+                                                    <td><div style="word-wrap: break-word;width:100px;"></div></td>
+                                                    <td><div style="word-wrap: break-word;width:150px"></div></td>
+                                                    <td><div style="word-wrap: break-word;width:100px;"></div></td>
+                                                    <td>
+                                                        <a href="#" class="btn mr-1 mb-1 btn-outline-secondary btn-sm">
+                                                            المزيد من التفاصيل
+                                                        </a>
+                                                    </td>
                                                     <td>
                                                         <div class="btn-group" role="group"
-                                                             aria-label="Basic example">
-                                                            <a href="{{ route('admin.get.lessons.free.courses.edit',$lesson->id) }}"
-                                                               class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">تعديل</a>
-                                                            <a href="{{ route('admin.get.lessons.free.courses.delete',['id'=>$lesson->id,'course_id'=>$lesson->course_id ]) }}"
-                                                                    class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1"
-                                                                    >
-                                                                حذف
-                                                            </a>
-
+                                                        aria-label="Basic example">
+                                                        <a href="#" class="btn mr-1 mb-1 btn-outline-primary btn-sm">
+                                                            تعديل
+                                                        </a>
+                                                        <a href="#" class="btn mr-1 mb-1 btn-outline-danger btn-sm">
+                                                            حذف
+                                                        </a>
                                                         </div>
                                                     </td>
                                                 </tr>
-                                                @endforeach
-                                                @endisset
-
-
                                         </tbody>
                                     </table>
                                     <div class="justify-content-center d-flex">
-
                                     </div>
                                 </div>
                             </div>

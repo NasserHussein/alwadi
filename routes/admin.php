@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CardsController;
 use App\Http\Controllers\Admin\DashboardController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,6 +21,11 @@ Route::group(['namespace'=>'App\Http\Controllers\Admin','middleware'=>'auth:admi
     Route::get('edit-personal-password','CpanelController@edit_pass')->name('admin.edit.pass.data');
     Route::post('edit-personal-password','CpanelController@update_pass')->name('admin.update.pass.data');
     Route::get('logout','LoginController@logout')->name('admin.logout');
+        ################################# cards Route ###################################
+Route::group(['prefix'=>'Identification_Cards'],function(){
+    Route::get('/','CardsController@index')->name('admin.index.cards');
+
+});
 });
 Route::group(['namespace'=>'App\Http\Controllers\Admin','middleware'=>'guest:admin'],function(){
     Route::get('login','LoginController@index')->name('get.admin.login');
