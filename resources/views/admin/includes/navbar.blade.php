@@ -9,8 +9,8 @@
                 <li class="nav-item">
                     <a class="navbar-brand" href="{{ route('admin.dashboard') }}">
                         <img class="brand-logo" alt="modern admin logo"
-                             src="{{ asset('assets/admin/images/logo/logo.png') }}">
-                        <h3 class="brand-text">FARAG ACADEMY</h3>
+                             src="{{ asset('assets/admin/images/logo/alwadi.png') }}">
+                        <h1 class="brand-text">ALWADI</h1>
                     </a>
                 </li>
                 <li class="nav-item d-md-none">

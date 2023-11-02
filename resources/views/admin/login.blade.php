@@ -12,6 +12,7 @@
     <title>تسجيل الدخول</title>
 {{--     <link rel="apple-touch-icon" href="{{asset('assets/admin/images/ico/apple-icon-120.png')}}">
     <link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/admin/images/ico/favicon.ico')}}"> --}}
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/admin/images/logo/alwadi.png') }}">
     <link rel="apple-touch-icon" href="{{asset('assets/front/img/png.png')}}">
     <link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/front/img/png.png')}}">
     <link
@@ -38,7 +39,6 @@
     <link rel="stylesheet" type="text/css" href="{{asset('assets/admin/css-rtl/style-rtl.css')}}">
     <!-- END Custom CSS-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
     <link href="https://fonts.googleapis.com/css?family=Cairo&display=swap" rel="stylesheet">
     <style>
         body {
@@ -62,13 +62,13 @@
                             <div class="card-title text-center">
                                 <div class="p-1">
                                     {{-- <img src="{{asset('assets/admin/images/logo/logo.png')}}" alt="LOGO"/> --}}
-                                    <img style="width: 170px;height: 130px;" src="{{asset('assets/front/img/png.png')}}" alt="LOGO"/>
+                                    <img style="width: 130px;height: 100px;" src="{{asset('assets/admin/images/logo/alwadi.png')}}" alt="LOGO"/>
 
                                 </div>
                             </div>
-                            <h6 class="card-subtitle line-on-side text-muted text-center font-small-3 pt-2">
-                                <span>الدخول للوحة التحكم </span>
-                            </h6>
+                            <h4 class="card-subtitle line-on-side text-muted text-center  pt-2">
+                                <span>برنامج أدارة المعدات</span>
+                            </h4>
                         </div>
                         @include('admin.includes.alerts.errors')
                         @include('admin.includes.alerts.success')
