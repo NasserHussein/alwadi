@@ -24,7 +24,7 @@ Route::group(['namespace'=>'App\Http\Controllers\Admin','middleware'=>'auth:admi
         ################################# cards Route ###################################
 Route::group(['prefix'=>'Identification_Cards'],function(){
     Route::get('/','CardsController@index')->name('admin.index.cards');
-
+    Route::get('/create','CardsController@create')->name('admin.create.cards');
 });
 });
 Route::group(['namespace'=>'App\Http\Controllers\Admin','middleware'=>'guest:admin'],function(){

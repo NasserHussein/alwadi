@@ -13,7 +13,7 @@
               <ul class="menu-content">
                   <li class=""><a class="menu-item" href="{{ route('admin.index.cards') }}" data-i18n="nav.dash.ecommerce"> عرض كل المعدات </a>
                   </li>
-                  <li class=""><a class="menu-item" href="" data-i18n="nav.dash.ecommerce">إضافة معدة</a>
+                  <li class=""><a class="menu-item" href="{{ route('admin.create.cards') }}" data-i18n="nav.dash.ecommerce">إضافة معدة</a>
                   </li>
               </ul>
           </li>
