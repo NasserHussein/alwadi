@@ -10,7 +10,8 @@ use Illuminate\Http\Request;
 class CardsController extends Controller
 {
     public function index(){
-        return view('admin.pages.card.index');
+        $cards = Card::all();
+        return view('admin.pages.card.index',compact('cards'));
     }
     public function create(){
         return view('admin.pages.card.create');
@@ -39,6 +40,6 @@ class CardsController extends Controller
             'material' => $request['material'],
             'additional_data' => $request['additional_data'],
         ]);
-        return redirect()->route('admin.index.cards')->with(['success' => 'تم أضافة المعدة بنجاح']);
+        return redirect()->route('admin.index.cards')->with(['success' => 'تم تسجيل المعدة بنجاح']);
     }
 }

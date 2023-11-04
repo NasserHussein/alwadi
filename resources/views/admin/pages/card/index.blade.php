@@ -46,8 +46,8 @@
                                     <table class=" display nowrap table-striped table-bordered scroll-horizontal"  style="width:auto;text-align: center">
                                         <thead>
                                         <tr>
-                                            <th>إسم المعدة</th>
                                             <th>رقم المعدة</th>
+                                            <th>إسم المعدة</th>
                                             <th>النوع والموديل</th>
                                             <th>الرقم المسلسل</th>
                                             <th>السعة</th>
@@ -56,16 +56,109 @@
                                         </tr>
                                         </thead>
                                         <tbody>
+                                            @isset($cards)
+                                            @foreach ($cards as $card)
                                                 <tr>
-                                                    <td><div style="word-wrap: break-word;width:150px;"></div></td>
-                                                    <td><div style="word-wrap: break-word;width:90px;"></div></td>
-                                                    <td><div style="word-wrap: break-word;width:100px;"></div></td>
-                                                    <td><div style="word-wrap: break-word;width:150px"></div></td>
-                                                    <td><div style="word-wrap: break-word;width:100px;"></div></td>
+                                                    <td><div style="word-wrap: break-word;width:90px;">{{ $card->code }}</div></td>
+                                                    <td><div style="word-wrap: break-word;width:150px;">{{ $card->name }}</div></td>
+                                                    <td><div style="word-wrap: break-word;width:100px;">{{ $card->model }}</div></td>
+                                                    <td><div style="word-wrap: break-word;width:150px">{{ $card->serial_no }}</div></td>
+                                                    <td><div style="word-wrap: break-word;width:100px;">{{ $card->capacity }}</div></td>
                                                     <td>
-                                                        <a href="#" class="btn mr-1 mb-1 btn-outline-secondary btn-sm">
+                                                        <button data-toggle="modal" data-target="#card-details{{ $card->id }}" class="btn mr-1 mb-1 btn-outline-secondary btn-sm">
                                                             المزيد من التفاصيل
-                                                        </a>
+                                                        </button>
+                                                        {{-- ----Start Modal---- --}}
+                                                            <div class="modal fade text-left" id="card-details{{ $card->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel16" style="display: none;" aria-hidden="true">
+                                                                <div class="modal-dialog modal-xl" role="document">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <h4 class="modal-title" id="myModalLabel16">تفاصيل إضافية عن المعدة</h4>
+                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                                <span aria-hidden="true">×</span>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <h5>تفاصيل إضافية عن المعدة</h5>
+                                                                            <div class="table-responsive">
+                                                                                <table class="table">
+                                                                                    <thead>
+                                                                                    <tbody>
+                                                                                        <tr>
+                                                                                            <th scope="row">القسم</th>
+                                                                                            <td>{{ $card->part }}</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <th scope="row">تاريخ التشغيل</th>
+                                                                                            <td>{{ $card->date_of_start }}</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <th scope="row">الوزن</th>
+                                                                                            <td>{{ $card->weight }}</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <th scope="row">إسم الصانع</th>
+                                                                                            <td>{{ $card->maker }}</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <th scope="row">رقم الرسم</th>
+                                                                                            <td>{{ $card->drg_no }}</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <th scope="row">الأبعاد</th>
+                                                                                            <td>{{ $card->dimensions }}</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <th scope="row">إسم المورد</th>
+                                                                                            <td>{{ $card->supplier }}</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <th scope="row">بيان كتالوج التشغيل</th>
+                                                                                            <td>{{ $card->inst_bk_no }}</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <th scope="row">القدرة  ك.وات / حصان</th>
+                                                                                            <td>{{ $card->power }}</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <th scope="row">رقم أمر التصنيع</th>
+                                                                                            <td>{{ $card->mfg_order_no }}</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <th scope="row">بيان كتالوجات الصيانة</th>
+                                                                                            <td>{{ $card->maintenance_bk_no }}</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <th scope="row">فولت التحكم </th>
+                                                                                            <td>{{ $card->control_voltage }}</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <th scope="row">رقم أمر الشراء</th>
+                                                                                            <td>{{ $card->purchase_order_no }}</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <th scope="row">الامبير الكلي</th>
+                                                                                            <td>{{ $card->total_amperage }}</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <th scope="row">المعدن</th>
+                                                                                            <td>{{ $card->material }}</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <th scope="row">بيانات ومعلومات أضافية </th>
+                                                                                            <td>{{ $card->additional_data }}</td>
+                                                                                        </tr>
+                                                                                    </tbody>
+                                                                                </table>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn grey btn-outline-secondary" data-dismiss="modal">إغلاق</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        {{-- ----End Modal---- --}}
                                                     </td>
                                                     <td>
                                                         <div class="btn-group" role="group"
@@ -79,6 +172,8 @@
                                                         </div>
                                                     </td>
                                                 </tr>
+                                            @endforeach
+                                            @endisset
                                         </tbody>
                                     </table>
                                     <div class="justify-content-center d-flex">
