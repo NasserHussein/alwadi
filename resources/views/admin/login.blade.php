@@ -139,7 +139,7 @@
 <script src="{{asset('assets/admin/js/scripts/forms/form-login-register.js')}}" type="text/javascript"></script>
 <!-- END PAGE LEVEL JS-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="{{ asset('assets/front/js/submit.js') }}"></script>
+<script src="{{ asset('assets/admin/js/submit.js') }}"></script>
 <script>
 
 </script>
