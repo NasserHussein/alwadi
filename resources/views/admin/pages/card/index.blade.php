@@ -163,7 +163,7 @@
                                                     <td>
                                                         <div class="btn-group" role="group"
                                                         aria-label="Basic example">
-                                                        <a href="#" class="btn mr-1 mb-1 btn-outline-primary btn-sm">
+                                                        <a href="{{ route('admin.edit.cards',$card->id) }}" class="btn mr-1 mb-1 btn-outline-primary btn-sm">
                                                             تعديل
                                                         </a>
                                                         <button type="button" data-toggle="modal" data-target="#delete{{ $card->id }}" class="btn mr-1 mb-1 btn-outline-danger btn-sm">
@@ -184,7 +184,7 @@
                                                                     </div>
                                                                     <div class="modal-footer">
                                                                         <button type="button" class="btn grey btn-outline-secondary" data-dismiss="modal">لا , تراجع</button>
-                                                                        <a href="#" class="btn btn-outline-danger">نعم متأكد , قم بالحذف</a>
+                                                                        <a href="{{ route('admin.delete.cards',$card->id) }}" class="btn btn-outline-danger">نعم متأكد , قم بالحذف</a>
                                                                     </div>
                                                                 </div>
                                                             </div>
