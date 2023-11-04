@@ -27,7 +27,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title"><i class="la la-group"></i> جميع المعدات المسجلة 222 معدة</h4>
+                                <h4 class="card-title"><i class="la la-group"></i> جميع المعدات المسجلة {{ $cards->count() }} معدة</h4>
                                 <a class="heading-elements-toggle"><i
                                         class="la la-ellipsis-v font-medium-3"></i></a>
                                 <div class="heading-elements">
@@ -166,9 +166,30 @@
                                                         <a href="#" class="btn mr-1 mb-1 btn-outline-primary btn-sm">
                                                             تعديل
                                                         </a>
-                                                        <a href="#" class="btn mr-1 mb-1 btn-outline-danger btn-sm">
+                                                        <button type="button" data-toggle="modal" data-target="#delete{{ $card->id }}" class="btn mr-1 mb-1 btn-outline-danger btn-sm">
                                                             حذف
-                                                        </a>
+                                                        </button>
+                                                        {{-- ----Start Modal---- --}}
+                                                        <div class="modal animated bounceIn text-left" id="delete{{ $card->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel46" style="display: none;" aria-hidden="true">
+                                                            <div class="modal-dialog" role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h4 class="modal-title" id="myModalLabel46">حذف بيانات المعدة</h4>
+                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                            <span aria-hidden="true">×</span>
+                                                                        </button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        <h5 style="color: red">هل متأكد من حذف بيانات المعدة</h5>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn grey btn-outline-secondary" data-dismiss="modal">لا , تراجع</button>
+                                                                        <a href="#" class="btn btn-outline-danger">نعم متأكد , قم بالحذف</a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        {{-- ----End Modal---- --}}
                                                         </div>
                                                     </td>
                                                 </tr>
