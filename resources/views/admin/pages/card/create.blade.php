@@ -33,6 +33,8 @@ input[type="date"]::-webkit-datetime-edit-day-field{
   left: 4px;
 
 }
+
+label[required]:after {content:'*';color:red;}
 </style>
 <div class="app-content content">
     <div class="content-wrapper">
@@ -75,13 +77,13 @@ input[type="date"]::-webkit-datetime-edit-day-field{
                             @include('admin.includes.alerts.errors')
                             <div class="card-content collapse show">
                                 <div class="card-body">
-                                    <form class="form form-prevent-multiple-submits" action="#" method="POST"
+                                    <form class="form form-prevent-multiple-submits" action="{{ route('admin.store.cards') }}" method="POST"
                                           enctype="multipart/form-data">
                                           @csrf
                                           <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label for="projectinput1">برجاء أختيار أسم المعدة</label>
+                                                    <label for="projectinput1" required>برجاء أختيار أسم المعدة</label>
                                                     <select name="name" id="profession" class="form-control">
                                                         <option value="" disabled selected>إختر نوع المعدة</option>
                                                         <option value="حفار">حفار</option>
