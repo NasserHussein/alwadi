@@ -34,8 +34,9 @@ return new class extends Migration
             $table->string('serial_no')->nullable();
             $table->string('material')->nullable();
             $table->string('additional_data')->nullable();
+            $table->string('card_hours')->nullable();
             $table->date('date_of_oil')->nullable();
-            $table->integer('oil_hours')->nullable();
+            $table->string('oil_hours')->nullable();
             $table->integer('hours_used')->nullable();
             $table->integer('remaining_hours')->nullable();
             $table->timestamps();

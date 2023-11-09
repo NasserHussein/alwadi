@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CardsOilRequest;
 use App\Http\Requests\CardsRequest;
 use App\Models\Admin\Card;
 use Illuminate\Http\Request;
@@ -86,5 +87,20 @@ class CardsController extends Controller
         }
         $card->delete();
         return redirect()->route('admin.index.cards')->with(['success' => 'تم حذف سجل المعدة بنجاح']);
+    }
+    ////////////////Cards Oil Registration/////////////////
+    public function oil_registration(CardsOilRequest $request, $id){
+    $card = Card::find($id);
+    if(!$card){
+        return abort(403);
+    }
+    $card->update([
+        'date_of_oil' => $request['date_of_oil'],
+        'oil_hours' => $request['oil_hours'],
+        'card_hours' => $request['oil_hours'],
+        'hours_used' => 0,
+        'remaining_hours' => 200
+    ]);
+        return redirect()->route('admin.index.cards')->with(['success' => 'تم تسجيل بيانات تغيير الزيت الجديدة']);
     }
 }

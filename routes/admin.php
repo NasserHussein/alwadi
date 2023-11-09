@@ -29,6 +29,9 @@ Route::group(['prefix'=>'Identification_Cards'],function(){
     Route::get('/edit/{id}','CardsController@edit')->name('admin.edit.cards');
     Route::post('/update/{id}','CardsController@update')->name('admin.update.cards');
     Route::get('/delete/{id}','CardsController@delete')->name('admin.delete.cards');
+                ###### Start Cards Oil Registration Route ######
+    Route::post('/CardsOilRegistration/{id}','CardsController@oil_registration')->name('admin.cards.oil.registration');
+                ###### End Cards Oil Registration Route ######
 });
 });
 Route::group(['namespace'=>'App\Http\Controllers\Admin','middleware'=>'guest:admin'],function(){

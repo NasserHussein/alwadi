@@ -93,6 +93,10 @@
                                                                                             <td>{{ $card->date_of_start }}</td>
                                                                                         </tr>
                                                                                         <tr>
+                                                                                            <th scope="row">عداد المعدة الحالي بالساعات</th>
+                                                                                            <td>{{ $card->card_hours }} ساعة</td>
+                                                                                        </tr>
+                                                                                        <tr>
                                                                                             <th scope="row">الوزن</th>
                                                                                             <td>{{ $card->weight }}</td>
                                                                                         </tr>
@@ -159,6 +163,52 @@
                                                                 </div>
                                                             </div>
                                                         {{-- ----End Modal---- --}}
+                                                        <button data-toggle="modal" data-target="#oil-details{{ $card->id }}" class="btn mr-1 mb-1 btn-primary btn-sm">معلومات عن الزيت</button>
+                                                        {{-- ----Start Modal---- --}}
+                                                        <div class="modal animated swing text-left" id="oil-details{{ $card->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel42" style="display: none;" aria-hidden="true">
+                                                            <div class="modal-dialog" role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h4 class="modal-title" id="myModalLabel42">معلومات عن تغيير الزيت</h4>
+                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                            <span aria-hidden="true">×</span>
+                                                                        </button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        <div class="table-responsive">
+                                                                            <table class="table table-striped bg-info mb-0 white">
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td>أخر تاريخ لتغيير الزيت</td>
+                                                                                        <td>{{ $card->date_of_oil }}</td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td>عداد المعدة بالساعات عند تغيير الزيت</td>
+                                                                                        <td>{{ $card->oil_hours }} ساعة</td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td>عداد المعدة بالساعات حاليا</td>
+                                                                                        <td>{{ $card->card_hours }} ساعة</td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td>عدد الساعات المستهلكة بعد تغيير الزيت</td>
+                                                                                        <td>{{ $card->hours_used }} ساعة</td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td>عدد الساعات المتبقية لتغيير الزيت</td>
+                                                                                        <td>{{ $card->remaining_hours }} ساعة</td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn grey btn-outline-secondary" data-dismiss="modal">إغلاق</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        {{-- ----End Modal---- --}}
                                                     </td>
                                                     <td>
                                                         <div class="btn-group" role="group"
@@ -191,6 +241,61 @@
                                                         </div>
                                                         {{-- ----End Modal---- --}}
                                                         </div>
+                                                        <button type="button" data-toggle="modal" data-target="#OilRegistration{{ $card->id }}" class="btn mr-1 mb-1 btn-success btn-sm round">تم تغيير زيت للمعدة</button>
+                                                        {{-- ----Start Modal---- --}}
+                                                        <div class="modal animated tada text-left" id="OilRegistration{{ $card->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel43" style="display: none;" aria-hidden="true">
+                                                            <div class="modal-dialog" role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h4 class="modal-title" id="myModalLabel43">تغير زيت للمعدة</h4>
+                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                            <span aria-hidden="true">×</span>
+                                                                        </button>
+                                                                    </div>
+                                                                    <form class="form form-prevent-multiple-submits" action="{{ route('admin.cards.oil.registration',$card->id) }}" method="POST"
+                                                                        enctype="multipart/form-data">
+                                                                        @csrf
+                                                                    <div class="modal-body">
+                                                                        <h5>من فضلك أملا البيانات المطلوبة</h5>
+                                                                        <hr>
+                                                                        <div class="row">
+                                                                            <div class="col-md-6">
+                                                                                <div class="form-group">
+                                                                                    <label for="projectinput1">تاريخ تغيير الزيت</label>
+                                                                                    <input type="date" value="{{ old('date_of_oil') }}" id="date_of_oil"
+                                                                                        class="form-control"
+                                                                                        placeholder="أدخل تاريخ تغيير الزيت"
+                                                                                        name="date_of_oil">
+                                                                                        @error('date_of_oil')
+                                                                                        <span class="text-danger">{{ $message }}</span>
+                                                                                        @enderror
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-6">
+                                                                                <div class="form-group">
+                                                                                    <label for="projectinput1">عداد المعدة بالساعات</label>
+                                                                                    <input type="text" value="{{ old('oil_hours') }}" id="oil_hours"
+                                                                                        class="form-control"
+                                                                                        placeholder="أدخل عداد المعدة بالساعات"
+                                                                                        name="oil_hours">
+                                                                                        @error('oil_hours')
+                                                                                        <span class="text-danger">{{ $message }}</span>
+                                                                                        @enderror
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn grey btn-outline-secondary" data-dismiss="modal">إغلاق</button>
+                                                                        <button type="submit" class="btn btn-outline-primary button-prevent-multiple-submits">تسجيل بيانات تغيير الزيت
+                                                                            <i style="display: none" class="spinner-button fa fa-spinner fa-spin"></i>
+                                                                        </button>
+                                                                    </div>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        {{-- ----End Modal---- --}}
                                                     </td>
                                                 </tr>
                                             @endforeach

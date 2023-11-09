@@ -31,6 +31,7 @@ class Card extends Model
     'serial_no',
     'material',
     'additional_data',
+    'card_hours',
     'date_of_oil',
     'oil_hours',
     'hours_used',
