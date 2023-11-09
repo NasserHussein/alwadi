@@ -23,7 +23,7 @@ class CardsOilRequest extends FormRequest
     {
         return [
             'date_of_oil' => 'date',
-            'oil_hours' => 'numeric|max:255'
+            'oil_hours' => 'numeric'
         ];
     }
     public function messages()
@@ -31,7 +31,6 @@ class CardsOilRequest extends FormRequest
         return [
             'date' => 'هذا الحقل يجب ان يكون تاريخ',
             'numeric' => 'هذا الحقل يجب ان يكون ارقام',
-            'max' => 'هذا الحقل يجب ان لا يزيد عن 255 رقم'
         ];
     }
 }

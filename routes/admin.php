@@ -29,6 +29,15 @@ Route::group(['prefix'=>'Identification_Cards'],function(){
     Route::get('/edit/{id}','CardsController@edit')->name('admin.edit.cards');
     Route::post('/update/{id}','CardsController@update')->name('admin.update.cards');
     Route::get('/delete/{id}','CardsController@delete')->name('admin.delete.cards');
+                ###### Start Cards Types Route ######
+    Route::get('/digger','CardsController@index_digger')->name('admin.digger.cards');
+    Route::get('/loader','CardsController@index_loader')->name('admin.loader.cards');
+    Route::get('/generator','CardsController@index_generator')->name('admin.generator.cards');
+    Route::get('/crusher','CardsController@index_crusher')->name('admin.crusher.cards');
+    Route::get('/compressor','CardsController@index_compressor')->name('admin.compressor.cards');
+    Route::get('/research_machin','CardsController@index_research_machine')->name('admin.research.machine.cards');
+                ###### End Cards Types Route ######
+
                 ###### Start Cards Oil Registration Route ######
     Route::post('/CardsOilRegistration/{id}','CardsController@oil_registration')->name('admin.cards.oil.registration');
                 ###### End Cards Oil Registration Route ######

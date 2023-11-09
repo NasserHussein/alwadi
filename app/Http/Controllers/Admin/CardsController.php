@@ -14,6 +14,32 @@ class CardsController extends Controller
         $cards = Card::all();
         return view('admin.pages.card.index',compact('cards'));
     }
+    //////////////////// Start Cards Types /////////////////
+    public function index_digger(){
+        $cards = Card::where('name' , 'حفار')->get();
+        return view('admin.pages.card.types.digger',compact('cards'));
+    }
+    public function index_loader(){
+        $cards = Card::where('name' , 'لودر')->get();
+        return view('admin.pages.card.types.loader',compact('cards'));
+    }
+    public function index_generator(){
+        $cards = Card::where('name' , 'مولد')->get();
+        return view('admin.pages.card.types.generator',compact('cards'));
+    }
+    public function index_crusher(){
+        $cards = Card::where('name' , 'كسارة')->get();
+        return view('admin.pages.card.types.crusher',compact('cards'));
+    }
+    public function index_compressor(){
+        $cards = Card::where('name' , 'كمبريسور')->get();
+        return view('admin.pages.card.types.compressor',compact('cards'));
+    }
+    public function index_research_machine(){
+        $cards = Card::where('name' , 'ماكينة ابحاث')->get();
+        return view('admin.pages.card.types.research_machine',compact('cards'));
+    }
+    //////////////////// End Cards Types /////////////////
     public function create(){
         return view('admin.pages.card.create');
     }
@@ -78,6 +104,23 @@ class CardsController extends Controller
             'material' => $request['material'],
             'additional_data' => $request['additional_data'],
         ]);
+        if($request['name'] == 'حفار'){
+            return redirect()->route('admin.digger.cards')->with(['success' => 'تم تعديل بيانات المعدة بنجاح']);
+        }else if($request['name'] == 'لودر'){
+            return redirect()->route('admin.loader.cards')->with(['success' => 'تم تعديل بيانات المعدة بنجاح']);
+        }
+        else if($request['name'] == 'مولد'){
+            return redirect()->route('admin.generator.cards')->with(['success' => 'تم تعديل بيانات المعدة بنجاح']);
+        }
+        else if($request['name'] == 'كسارة'){
+            return redirect()->route('admin.crusher.cards')->with(['success' => 'تم تعديل بيانات المعدة بنجاح']);
+        }
+        else if($request['name'] == 'كمبريسور'){
+            return redirect()->route('admin.compressor.cards')->with(['success' => 'تم تعديل بيانات المعدة بنجاح']);
+        }
+        else if($request['name'] == 'ماكينة ابحاث'){
+            return redirect()->route('admin.research.machine.cards')->with(['success' => 'تم تعديل بيانات المعدة بنجاح']);
+        }
         return redirect()->route('admin.index.cards')->with(['success' => 'تم تعديل بيانات المعدة بنجاح']);
     }
     public function delete($id){
@@ -86,6 +129,23 @@ class CardsController extends Controller
             return abort(403);
         }
         $card->delete();
+        if($card->name == 'حفار'){
+            return redirect()->route('admin.digger.cards')->with(['success' => 'تم حذف سجل المعدة بنجاح']);
+        }else if($card->name == 'لودر'){
+            return redirect()->route('admin.loader.cards')->with(['success' => 'تم حذف سجل المعدة بنجاح']);
+        }
+        else if($card->name == 'مولد'){
+            return redirect()->route('admin.generator.cards')->with(['success' => 'تم حذف سجل المعدة بنجاح']);
+        }
+        else if($card->name == 'كسارة'){
+            return redirect()->route('admin.crusher.cards')->with(['success' => 'تم حذف سجل المعدة بنجاح']);
+        }
+        else if($card->name == 'كمبريسور'){
+            return redirect()->route('admin.compressor.cards')->with(['success' => 'تم حذف سجل المعدة بنجاح']);
+        }
+        else if($card->name == 'ماكينة ابحاث'){
+            return redirect()->route('admin.research.machine.cards')->with(['success' => 'تم حذف سجل المعدة بنجاح']);
+        }
         return redirect()->route('admin.index.cards')->with(['success' => 'تم حذف سجل المعدة بنجاح']);
     }
     ////////////////Cards Oil Registration/////////////////
@@ -101,6 +161,23 @@ class CardsController extends Controller
         'hours_used' => 0,
         'remaining_hours' => 200
     ]);
+        if($card->name == 'حفار'){
+            return redirect()->route('admin.digger.cards')->with(['success' => 'تم تسجيل بيانات تغيير الزيت الجديدة']);
+        }else if($card->name == 'لودر'){
+            return redirect()->route('admin.loader.cards')->with(['success' => 'تم تسجيل بيانات تغيير الزيت الجديدة']);
+        }
+        else if($card->name == 'مولد'){
+            return redirect()->route('admin.generator.cards')->with(['success' => 'تم تسجيل بيانات تغيير الزيت الجديدة']);
+        }
+        else if($card->name == 'كسارة'){
+            return redirect()->route('admin.crusher.cards')->with(['success' => 'تم تسجيل بيانات تغيير الزيت الجديدة']);
+        }
+        else if($card->name == 'كمبريسور'){
+            return redirect()->route('admin.compressor.cards')->with(['success' => 'تم تسجيل بيانات تغيير الزيت الجديدة']);
+        }
+        else if($card->name == 'ماكينة ابحاث'){
+            return redirect()->route('admin.research.machine.cards')->with(['success' => 'تم تسجيل بيانات تغيير الزيت الجديدة']);
+        }
         return redirect()->route('admin.index.cards')->with(['success' => 'تم تسجيل بيانات تغيير الزيت الجديدة']);
     }
 }
