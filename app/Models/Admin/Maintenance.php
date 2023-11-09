@@ -12,7 +12,7 @@ class Maintenance extends Model
         'id',
         'maintenance',
         'cost',
-        'date of maintenance',
+        'date_of_maintenance',
         'created_at',
         'updated_at'
     ];

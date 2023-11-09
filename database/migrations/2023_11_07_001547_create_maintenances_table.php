@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->longText('maintenance');
             $table->integer('cost');
-            $table->date('date of maintenance');
+            $table->date('date_of_maintenance');
             $table->timestamps();
         });
     }
