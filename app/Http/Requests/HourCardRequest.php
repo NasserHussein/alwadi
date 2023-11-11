@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CardsOilRequest extends FormRequest
+class HourCardRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,8 +22,8 @@ class CardsOilRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'date_of_oil' => 'date',
-            'oil_hours' => 'numeric|required'
+            'date' => 'date',
+            'card_hours' => 'numeric|required'
         ];
     }
     public function messages()

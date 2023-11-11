@@ -154,12 +154,13 @@ class CardsController extends Controller
     if(!$card){
         return abort(403);
     }
+    $duration_of_oil =200;
     $card->update([
         'date_of_oil' => $request['date_of_oil'],
         'oil_hours' => $request['oil_hours'],
         'card_hours' => $request['oil_hours'],
         'hours_used' => 0,
-        'remaining_hours' => 200
+        'remaining_hours' => $duration_of_oil
     ]);
         if($card->name == 'حفار'){
             return redirect()->route('admin.digger.cards')->with(['success' => 'تم تسجيل بيانات تغيير الزيت الجديدة']);

@@ -83,45 +83,45 @@
                                                                             <span aria-hidden="true">×</span>
                                                                         </button>
                                                                     </div>
-                                                                    <form class="form form-prevent-multiple-submits" action="#" method="POST"
+                                                                    <form class="form form-prevent-multiple-submits" action="{{ route('admin.store.hour.cards',$card->id) }}" method="POST"
                                                                         enctype="multipart/form-data">
                                                                         @csrf
-                                                                    <div class="modal-body">
-                                                                        <h5>من فضلك أملا البيانات المطلوبة</h5>
-                                                                        <hr>
-                                                                        <div class="row">
-                                                                            <div class="col-md-6">
-                                                                                <div class="form-group">
-                                                                                    <label for="projectinput1">تاريخ قراءة العداد</label>
-                                                                                    <input type="date" value="{{ old('date_of_oil') }}" id="date_of_oil"
-                                                                                        class="form-control"
-                                                                                        placeholder="أدخل تاريخ قراءة العداد"
-                                                                                        name="date_of_oil">
-                                                                                        @error('date_of_oil')
-                                                                                        <span class="text-danger">{{ $message }}</span>
-                                                                                        @enderror
+                                                                        <div class="modal-body">
+                                                                            <h5>من فضلك أملا البيانات المطلوبة</h5>
+                                                                            <hr>
+                                                                            <div class="row">
+                                                                                <div class="col-md-6">
+                                                                                    <div class="form-group">
+                                                                                        <label for="projectinput1">تاريخ قراءة العداد</label>
+                                                                                        <input type="date" value="{{ old('date') }}" id="date"
+                                                                                            class="form-control"
+                                                                                            placeholder="أدخل تاريخ قراءة العداد"
+                                                                                            name="date">
+                                                                                            @error('date')
+                                                                                            <span class="text-danger">{{ $message }}</span>
+                                                                                            @enderror
+                                                                                    </div>
                                                                                 </div>
-                                                                            </div>
-                                                                            <div class="col-md-6">
-                                                                                <div class="form-group">
-                                                                                    <label for="projectinput1">قراءة العداد الحالي بالساعات</label>
-                                                                                    <input type="text" value="{{ old('oil_hours') }}" id="oil_hours"
-                                                                                        class="form-control"
-                                                                                        placeholder="أدخل قراءة العداد الحالي بالساعات"
-                                                                                        name="oil_hours">
-                                                                                        @error('oil_hours')
-                                                                                        <span class="text-danger">{{ $message }}</span>
-                                                                                        @enderror
+                                                                                <div class="col-md-6">
+                                                                                    <div class="form-group">
+                                                                                        <label for="projectinput1">قراءة العداد الحالي بالساعات</label>
+                                                                                        <input type="text" value="{{ old('card_hours') }}" id="card_hours"
+                                                                                            class="form-control"
+                                                                                            placeholder="أدخل قراءة العداد الحالي بالساعات"
+                                                                                            name="card_hours">
+                                                                                            @error('card_hours')
+                                                                                            <span class="text-danger">{{ $message }}</span>
+                                                                                            @enderror
+                                                                                    </div>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                    </div>
-                                                                    <div class="modal-footer">
-                                                                        <button type="button" class="btn btn-dark btn-min-width mr-1 mb-1" data-dismiss="modal">إغلاق</button>
-                                                                        <button type="submit" class="btn btn-success btn-min-width mr-1 mb-1">حفظ البيانات المطلوبة <i class="ft-save"></i>
-                                                                            <i style="display: none" class="spinner-button fa fa-spinner fa-spin"></i>
-                                                                        </button>
-                                                                    </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn btn-dark btn-min-width mr-1 mb-1" data-dismiss="modal">إغلاق</button>
+                                                                            <button type="submit" class="btn btn-success btn-min-width mr-1 mb-1">حفظ البيانات المطلوبة <i class="ft-save"></i>
+                                                                                <i style="display: none" class="spinner-button fa fa-spinner fa-spin"></i>
+                                                                            </button>
+                                                                        </div>
                                                                     </form>
                                                                 </div>
                                                             </div>
