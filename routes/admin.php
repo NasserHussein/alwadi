@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\CardsController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\HoursController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +15,11 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::group(['namespace'=>'App\Http\Controllers\Admin','middleware'=>'guest:admin'],function(){
+    Route::get('login','LoginController@index')->name('get.admin.login');
+    Route::post('login','LoginController@login')->name('admin.login');
+});
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 Route::group(['namespace'=>'App\Http\Controllers\Admin','middleware'=>'auth:admin'],function(){
     Route::get('/','DashboardController@index')->name('admin.dashboard');
     Route::get('edit-personal-data','CpanelController@edit')->name('admin.edite.personal.data');
@@ -21,7 +27,7 @@ Route::group(['namespace'=>'App\Http\Controllers\Admin','middleware'=>'auth:admi
     Route::get('edit-personal-password','CpanelController@edit_pass')->name('admin.edit.pass.data');
     Route::post('edit-personal-password','CpanelController@update_pass')->name('admin.update.pass.data');
     Route::get('logout','LoginController@logout')->name('admin.logout');
-        ################################# cards Route ###################################
+        ################################# Start cards Route ###################################
 Route::group(['prefix'=>'Identification_Cards'],function(){
     Route::get('/','CardsController@index')->name('admin.index.cards');
     Route::get('/create','CardsController@create')->name('admin.create.cards');
@@ -37,17 +43,24 @@ Route::group(['prefix'=>'Identification_Cards'],function(){
     Route::get('/compressor','CardsController@index_compressor')->name('admin.compressor.cards');
     Route::get('/research_machin','CardsController@index_research_machine')->name('admin.research.machine.cards');
                 ###### End Cards Types Route ######
-
                 ###### Start Cards Oil Registration Route ######
     Route::post('/CardsOilRegistration/{id}','CardsController@oil_registration')->name('admin.cards.oil.registration');
                 ###### End Cards Oil Registration Route ######
 });
+        ################################# End cards Route ###################################
+        ################################# Start Hours cards Route ###################################
+Route::group(['prefix'=>'Hours_Equipment'],function(){
+    Route::get('/digger','HoursController@index_hour_digger')->name('admin.hour.digger.cards');
+    Route::get('/loader','HoursController@index_hour_loader')->name('admin.hour.loader.cards');
+    Route::get('/generator','HoursController@index_hour_generator')->name('admin.hour.generator.cards');
+    Route::get('/crusher','HoursController@index_hour_crusher')->name('admin.hour.crusher.cards');
+    Route::get('/compressor','HoursController@index_hour_compressor')->name('admin.hour.compressor.cards');
+    Route::get('/research_machin','HoursController@index_hour_research_machine')->name('admin.hour.research.machine.cards');
 });
-Route::group(['namespace'=>'App\Http\Controllers\Admin','middleware'=>'guest:admin'],function(){
-    Route::get('login','LoginController@index')->name('get.admin.login');
-    Route::post('login','LoginController@login')->name('admin.login');
+        ################################# End Hours cards Route ###################################
+});
 
-});
+
 //return Card::whereBetween('date_of_start', ['2000-02-04', '2000-02-10'])->get();
 //return Card::latest()->first()->code;
 //return $month= Card::where('date_of_start', '>', Carbon::now()->startOfMonth()) ->where('date_of_start', '<', Carbon::now()->endOfMonth()) ->get();
