@@ -60,8 +60,8 @@
                                                 <tr>
                                                     <td><div style="word-wrap: break-word;width:110px;">{{ $card->code }}</div></td>
                                                     <td><div style="word-wrap: break-word;width:100px;">{{ $card->model }}</div></td>
-                                                    <td><div style="word-wrap: break-word;width:100px;">{{ $card->model }}</div></td>
                                                     <td><div style="word-wrap: break-word;width:180px">{{ $card->serial_no }}</div></td>
+                                                    <td><div style="word-wrap: break-word;width:100px;">{{ $card->card_hours }}</div></td>
                                                     <td style="width:170px">
                                                         <a href="#" class="btn btn-outline-info btn-min-width box-shadow-3 mr-1 mb-1">
                                                             لمعرفة القراءات السابقة

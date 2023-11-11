@@ -27,7 +27,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title"><i class="la la-group"></i> جميع الحفارات المسجلة {{ $cards->count() }} حفارة</h4>
+                                <h4 class="card-title"><i class="la la-group"></i> جميع المكينات المسجلة {{ $cards->count() }} حفارة</h4>
                                 <a class="heading-elements-toggle"><i
                                         class="la la-ellipsis-v font-medium-3"></i></a>
                                 <div class="heading-elements">
@@ -46,7 +46,7 @@
                                     <table class=" display nowrap table-striped table-bordered scroll-horizontal"  style="width:auto;text-align: center">
                                         <thead>
                                         <tr style="height: 40px" class="bg-success white">
-                                            <th>رقم الحفار</th>
+                                            <th>رقم ماكينة الابحاث</th>
                                             <th>النوع والموديل</th>
                                             <th>الرقم المسلسل</th>
                                             <th>اخر قراءة للعداد</th>
@@ -60,9 +60,8 @@
                                                 <tr>
                                                     <td><div style="word-wrap: break-word;width:110px;">{{ $card->code }}</div></td>
                                                     <td><div style="word-wrap: break-word;width:100px;">{{ $card->model }}</div></td>
-                                                    <td><div style="word-wrap: break-word;width:100px;">{{ $card->model }}</div></td>
                                                     <td><div style="word-wrap: break-word;width:180px">{{ $card->serial_no }}</div></td>
-                                                    <td style="width:170px">
+                                                    <td><div style="word-wrap: break-word;width:100px;">{{ $card->card_hours }}</div></td>                                                    <td style="width:170px">
                                                         <a href="#" class="btn btn-outline-info btn-min-width box-shadow-3 mr-1 mb-1">
                                                             لمعرفة القراءات السابقة
                                                         </a>
