@@ -78,31 +78,32 @@
                         </a>
 
                         </li>
-                        <li><a class="menu-item" href="#" data-i18n="nav.dash.crypto">اللوادر
+                        </li>
+                        <li><a class="menu-item" href="{{ route('admin.hour.loader.cards') }}" data-i18n="nav.dash.crypto">اللوادر
                             <span class="badge badge badge-info badge badge-pill bg-blue-grey float-right mr-2">
                                 {{ App\Models\Admin\Card::where('name' , 'لودر')->count() }}</span>
                         </a>
 
                         </li>
-                        <li><a class="menu-item" href="#" data-i18n="nav.dash.crypto">المولدات
+                        <li><a class="menu-item" href="{{ route('admin.hour.generator.cards') }}" data-i18n="nav.dash.crypto">المولدات
                             <span class="badge badge badge-info badge-pill float-right mr-2">
                                 {{ App\Models\Admin\Card::where('name' , 'مولد')->count() }}</span>
                         </a>
 
                         </li>
-                        <li><a class="menu-item" href="#" data-i18n="nav.dash.crypto">الكسارات
+                        <li><a class="menu-item" href="{{ route('admin.hour.crusher.cards') }}" data-i18n="nav.dash.crypto">الكسارات
                             <span class="badge badge badge-danger badge-pill float-right mr-2">
                                 {{ App\Models\Admin\Card::where('name' , 'كسارة')->count() }}</span>
                         </a>
 
                         </li>
-                        <li><a class="menu-item" href="#" data-i18n="nav.dash.crypto">كمبريسور
+                        <li><a class="menu-item" href="{{ route('admin.hour.compressor.cards') }}" data-i18n="nav.dash.crypto">كمبريسور
                             <span class="badge badge badge-warning  badge-pill float-right mr-2">
                                 {{ App\Models\Admin\Card::where('name' , 'كمبريسور')->count() }}</span>
                         </a>
 
                         </li>
-                        <li><a class="menu-item" href="#" data-i18n="nav.dash.crypto">ماكينات الأبحاث
+                        <li><a class="menu-item" href="{{ route('admin.hour.research.machine.cards') }}" data-i18n="nav.dash.crypto">ماكينات الأبحاث
                             <span class="badge badge badge-success badge-pill float-right mr-2">
                                 {{ App\Models\Admin\Card::where('name' , 'ماكينة ابحاث')->count() }}</span>
                         </a>

@@ -1,19 +1,19 @@
 @extends('layouts.admin')
 @section('title')
-عداد الحفار
+عداد ماكينة الابحاث
 @endsection
 @section('content')
 <div class="app-content content">
     <div class="content-wrapper">
         <div class="content-header row">
             <div class="content-header-left col-md-6 col-12 mb-2">
-                <h3 class="content-header-title"> عداد الحفار </h3>
+                <h3 class="content-header-title"> ماكينة الابحاث </h3>
                 <div class="row breadcrumbs-top">
                     <div class="breadcrumb-wrapper col-12">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">الرئيسية</a>
                             </li>
-                            <li class="breadcrumb-item active"> عداد الحفار
+                            <li class="breadcrumb-item active"> عداد ماكينة الابحاث
                             </li>
                         </ol>
                     </div>
