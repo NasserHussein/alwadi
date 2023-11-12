@@ -12,8 +12,11 @@ class Maintenance extends Model
         'id',
         'maintenance',
         'cost',
-        'date_of_maintenance',
+        'date',
+        'duration',
+        'technician_name',
         'created_at',
-        'updated_at'
+        'updated_at',
+        'card_id'
     ];
 }

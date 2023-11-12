@@ -14,9 +14,13 @@ return new class extends Migration
         Schema::create('maintenances', function (Blueprint $table) {
             $table->id();
             $table->longText('maintenance');
-            $table->integer('cost');
-            $table->date('date_of_maintenance');
+            $table->string('cost');
+            $table->date('date');
+            $table->string('duration')->nullable();
+            $table->string('technician_name');
             $table->timestamps();
+            $table->bigInteger('card_id')->unsigned();
+            $table->foreign('card_id')->references('id')->on('cards')->onDelete('cascade');
         });
     }
 

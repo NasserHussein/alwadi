@@ -8,7 +8,7 @@
           <li class="nav-item active"><a href=""><i class="la la-truck"></i>
               <span class="menu-title" data-i18n="nav.dash.main">المعدات</span>
               <span
-                  class="badge badge badge-success badge-pill float-right mr-2">{{ App\Models\Admin\Card::count() }}</span>
+                  class="badge badge badge-info badge-pill float-right mr-2">{{ App\Models\Admin\Card::count() }}</span>
             </a>
               <ul class="menu-content">
                   <li class=""><a class="menu-item" href="{{ route('admin.index.cards') }}" data-i18n="nav.dash.ecommerce"> عرض كل المعدات </a>
