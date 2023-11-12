@@ -36,15 +36,16 @@ class HoursController extends Controller
         return view('admin.pages.hour.types.research_machine',compact('cards'));
     }
      //////////////////// End Hours Cards Types /////////////////
+     //////////////////// Start Update Hours Card /////////////////
     public function store(HourCardRequest $request , $id){
         $card = Card::find($id);
         if(!$card){
             return abort(403);
         }
-        if(Hour::all()->count() == 0){
+        if(Hour::where('card_id' , $id)->get()->count() == 0){
             $last_hour = 0;
         }else{
-            $last_hour = Hour::latest()->first()->card_hours;
+            $last_hour = Hour::where('card_id' , $id)->latest()->first()->card_hours;
         }
 
         if(!$last_hour){
@@ -84,4 +85,31 @@ class HoursController extends Controller
             return redirect()->route('admin.hour.research.machine.cards')->with(['success' => 'تم تحديث عداد المعدة بنجاح']);
         }
     }
+     //////////////////// End Update Hours Card  /////////////////
+     //////////////////// Start view all Hours Card  /////////////////
+     public function index_machine_cycle($id){
+        $hours = Hour::where('card_id', $id)->get()->sortByDesc('date');
+        $card = Card::find($id);
+        return view('admin.pages.hour.index',compact(['hours','card']));
+     }
+     //////////////////// End view all Hours Card  /////////////////
+     //////////////////// Start Delete all Hours Card  /////////////////
+     public function delete_all_hours($id){
+        $hours = Hour::where('card_id' , $id)->get();
+        foreach($hours as $hour){
+            $hour->delete();
+        }
+        return redirect()->route('admin.machine.cycle.cards',$id)->with(['error' => 'تم حذف جميع القراءات بنجاح']);
+     }
+     //////////////////// End Delete all Hours Card  /////////////////
+     //////////////////// Start Delete Hours Card  /////////////////
+     public function delete_hour($hour_id , $card_di){
+        $hour = Hour::find($hour_id);
+        if(!$hour_id){
+            return abort(403);
+        }
+        $hour->delete();
+        return redirect()->route('admin.machine.cycle.cards',$card_di)->with(['error' => 'تم حذف القراءة بنجاح']);
+     }
+     //////////////////// End Delete Hours Card  /////////////////
 }

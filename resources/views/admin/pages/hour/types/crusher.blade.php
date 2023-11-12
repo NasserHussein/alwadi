@@ -63,7 +63,7 @@
                                                     <td><div style="word-wrap: break-word;width:180px">{{ $card->serial_no }}</div></td>
                                                     <td><div style="word-wrap: break-word;width:100px;">{{ $card->card_hours }}</div></td>
                                                     <td style="width:170px">
-                                                        <a href="#" class="btn btn-outline-info btn-min-width box-shadow-3 mr-1 mb-1">
+                                                        <a href="{{ route('admin.machine.cycle.cards',$card->id) }}" class="btn btn-outline-info btn-min-width box-shadow-3 mr-1 mb-1">
                                                             لمعرفة القراءات السابقة
                                                         </a>
                                                     </td>

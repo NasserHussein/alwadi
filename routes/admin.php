@@ -57,6 +57,9 @@ Route::group(['prefix'=>'Hours_Equipment'],function(){
     Route::get('/compressor','HoursController@index_hour_compressor')->name('admin.hour.compressor.cards');
     Route::get('/research_machin','HoursController@index_hour_research_machine')->name('admin.hour.research.machine.cards');
     Route::post('/store/{id}','HoursController@store')->name('admin.store.hour.cards');
+    Route::get('/MachineCycle/{id}','HoursController@index_machine_cycle')->name('admin.machine.cycle.cards');
+    Route::get('/delete_all_hours/{id}','HoursController@delete_all_hours')->name('admin.delete_all_hours.cycle.cards');
+    Route::get('/delete_hour/{hour_id}/{card_id}','HoursController@delete_hour')->name('admin.delete_hour.cycle.cards');
 });
         ################################# End Hours cards Route ###################################
 });

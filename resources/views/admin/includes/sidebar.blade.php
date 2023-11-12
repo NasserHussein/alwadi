@@ -114,9 +114,8 @@
               </ul>
           </li>
           <li class="nav-item active"><a href=""><i class="la la-truck"></i>
-              <span class="menu-title" data-i18n="nav.dash.main">متابعة الصيانة</span>
-              <span
-                  class="badge badge badge-success badge-pill float-right mr-2">6</span>
+              <span class="menu-title" data-i18n="nav.dash.main">متابعة الصيانة&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="ft-settings font-medium-3 spinner red"></i></span>
+
             </a>
               <ul class="menu-content">
                   <li class=""><a class="menu-item" href="#" data-i18n="nav.dash.ecommerce"> عرض كل المعدات</a>
