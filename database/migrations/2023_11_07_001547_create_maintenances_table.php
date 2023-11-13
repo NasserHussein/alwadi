@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('maintenances', function (Blueprint $table) {
             $table->id();
             $table->longText('maintenance');
+            $table->string('spare_parts')->nullable();
             $table->string('cost');
             $table->date('date');
             $table->string('duration')->nullable();

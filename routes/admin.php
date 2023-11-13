@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\CardsController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\HoursController;
+use App\Http\Controllers\Admin\MaintenanceController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -62,6 +63,11 @@ Route::group(['prefix'=>'Hours_Equipment'],function(){
     Route::get('/delete_hour/{hour_id}/{card_id}','HoursController@delete_hour')->name('admin.delete_hour.cycle.cards');
 });
         ################################# End Hours cards Route ###################################
+        ################################# Start Maintenance cards Route ###################################
+Route::group(['prefix'=>'Maintenance_Equipments'],function(){
+    Route::get('/compressor','MaintenanceController@index_maintenance_compressor')->name('admin.maintenance.compressor.cards');
+});
+        ################################# End Maintenance cards Route ###################################
 });
 
 
