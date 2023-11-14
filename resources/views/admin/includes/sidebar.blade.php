@@ -62,7 +62,7 @@
           </li>
           <li class="nav-item active"><a href=""><i class="la la-dashboard"></i>
               <span class="menu-title" data-i18n="nav.dash.main">عداد المعدة &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <i class="la la-spinner spinner"></i></span>
+                <i style="color: rgb(255, 0, 242)" class="la la-hourglass-start"></i></span>
             </a>
 
               <ul class="menu-content">
@@ -118,44 +118,43 @@
 
             </a>
               <ul class="menu-content">
-                  <li class=""><a class="menu-item" href="#" data-i18n="nav.dash.ecommerce"> عرض كل المعدات</a>
-                  </li>
+
                     <li class="nav-item"><a href=""><i class="icon-list"></i>
                     <span class="menu-title" data-i18n="nav.dash.main">أختر نوع المعدة</span>
                      </a>
                     <ul class="menu-content">
 
-                        <li><a class="menu-item" href="{{ route('admin.digger.cards') }}" data-i18n="nav.dash.crypto">الحفارات
+                        <li><a class="menu-item" href="{{ route('admin.maintenance.cards.index.cards',1) }}" data-i18n="nav.dash.crypto">الحفارات
                             <span class="badge badge badge-warning  badge-pill float-right mr-2">
                                 {{ App\Models\Admin\Card::where('name' , 'حفار')->count() }}</span>
                         </a>
 
                         </li>
-                        <li><a class="menu-item" href="{{ route('admin.loader.cards') }}" data-i18n="nav.dash.crypto">اللوادر
+                        <li><a class="menu-item" href="{{ route('admin.maintenance.cards.index.cards',2) }}" data-i18n="nav.dash.crypto">اللوادر
                             <span class="badge badge badge-info badge badge-pill bg-blue-grey float-right mr-2">
                                 {{ App\Models\Admin\Card::where('name' , 'لودر')->count() }}</span>
                         </a>
 
                         </li>
-                        <li><a class="menu-item" href="{{ route('admin.generator.cards') }}" data-i18n="nav.dash.crypto">المولدات
+                        <li><a class="menu-item" href="{{ route('admin.maintenance.cards.index.cards',3) }}" data-i18n="nav.dash.crypto">المولدات
                             <span class="badge badge badge-info badge-pill float-right mr-2">
                                 {{ App\Models\Admin\Card::where('name' , 'مولد')->count() }}</span>
                         </a>
 
                         </li>
-                        <li><a class="menu-item" href="{{ route('admin.crusher.cards') }}" data-i18n="nav.dash.crypto">الكسارات
+                        <li><a class="menu-item" href="{{ route('admin.maintenance.cards.index.cards',4) }}" data-i18n="nav.dash.crypto">الكسارات
                             <span class="badge badge badge-danger badge-pill float-right mr-2">
                                 {{ App\Models\Admin\Card::where('name' , 'كسارة')->count() }}</span>
                         </a>
 
                         </li>
-                        <li><a class="menu-item" href="{{ route('admin.maintenance.compressor.cards') }}" data-i18n="nav.dash.crypto">كمبريسور
+                        <li><a class="menu-item" href="{{ route('admin.maintenance.cards.index.cards',5) }}" data-i18n="nav.dash.crypto">كمبريسور
                             <span class="badge badge badge-warning  badge-pill float-right mr-2">
                                 {{ App\Models\Admin\Card::where('name' , 'كمبريسور')->count() }}</span>
                         </a>
 
                         </li>
-                        <li><a class="menu-item" href="{{ route('admin.research.machine.cards') }}" data-i18n="nav.dash.crypto">ماكينات الأبحاث
+                        <li><a class="menu-item" href="{{ route('admin.maintenance.cards.index.cards',6) }}" data-i18n="nav.dash.crypto">ماكينات الأبحاث
                             <span class="badge badge badge-success badge-pill float-right mr-2">
                                 {{ App\Models\Admin\Card::where('name' , 'ماكينة ابحاث')->count() }}</span>
                         </a>

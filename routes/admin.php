@@ -65,7 +65,11 @@ Route::group(['prefix'=>'Hours_Equipment'],function(){
         ################################# End Hours cards Route ###################################
         ################################# Start Maintenance cards Route ###################################
 Route::group(['prefix'=>'Maintenance_Equipments'],function(){
-    Route::get('/compressor','MaintenanceController@index_maintenance_compressor')->name('admin.maintenance.compressor.cards');
+    Route::get('/{id}','MaintenanceController@index_cards')->name('admin.maintenance.cards.index.cards');
+    Route::get('Machine_life_record/{id}','MaintenanceController@index_maintenance')->name('admin.maintenance.cards.index.maintenance');
+    Route::post('/store/{id}','MaintenanceController@maintenanc_store')->name('admin.maintenance.cards.store.maintenance');
+    Route::post('/update/{id}','MaintenanceController@maintenanc_update')->name('admin.maintenance.cards.update.maintenance');
+    Route::get('/delete/{id}','MaintenanceController@maintenanc_delete')->name('admin.maintenance.cards.delete.maintenance');
 });
         ################################# End Maintenance cards Route ###################################
 });

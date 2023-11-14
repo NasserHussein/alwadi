@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->longText('maintenance');
             $table->string('spare_parts')->nullable();
-            $table->string('cost');
+            $table->bigInteger('cost');
             $table->date('date');
             $table->string('duration')->nullable();
             $table->string('technician_name');
