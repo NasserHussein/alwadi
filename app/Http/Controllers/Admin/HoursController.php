@@ -13,7 +13,7 @@ class HoursController extends Controller
      //////////////////// Start Hours Cards Types /////////////////
     public function index_hour_digger(){
         $cards = Card::where('name' , 'حفار')->get();
-        return view('admin.hour.pages.hour.types.digger',compact('cards'));
+        return view('admin.pages.hour.types.digger',compact('cards'));
     }
     public function index_hour_loader(){
         $cards = Card::where('name' , 'لودر')->get();
