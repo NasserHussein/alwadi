@@ -16,7 +16,7 @@
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">الرئيسية</a>
                             </li>
-                            <li class="breadcrumb-item active"> تكلفة {{ $name }}
+                            <li class="breadcrumb-item active"> حساب تكلفة {{ $name }}
                             </li>
                         </ol>
                     </div>
@@ -76,7 +76,7 @@
                                                             <div class="modal-dialog modal-lg" role="document">
                                                                 <div class="modal-content">
                                                                     <div class="modal-header">
-                                                                        <h4 class="modal-title" id="myModalLabel43">تسجيل عملية الصيانة</h4>
+                                                                        <h4 class="modal-title" id="myModalLabel43">الفترة المراد حساب التكلفة فيها</h4>
                                                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                             <span aria-hidden="true">×</span>
                                                                         </button>
