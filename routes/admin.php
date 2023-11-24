@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\CardsController;
+use App\Http\Controllers\Admin\CostController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\HoursController;
 use App\Http\Controllers\Admin\MaintenanceController;
@@ -72,6 +73,12 @@ Route::group(['prefix'=>'Maintenance_Equipments'],function(){
     Route::get('/delete/{id}','MaintenanceController@maintenanc_delete')->name('admin.maintenance.cards.delete.maintenance');
 });
         ################################# End Maintenance cards Route ###################################
+        ################################# Start Cost cards Route ###################################
+Route::group(['prefix'=>'Cost_Equipments'],function(){
+    Route::get('/{id}','CostController@index_cards')->name('admin.cost.cards.index.cards');
+    Route::post('/store/{id}','CostController@cost_store')->name('dmin.cost.cards.store.maintenance');
+});
+        ################################# End Cost cards Route ###################################
 });
 
 
