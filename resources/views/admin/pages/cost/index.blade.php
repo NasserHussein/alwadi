@@ -37,7 +37,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title"><i class="la la-dollar"></i> أجمالي تكلفة الصيانة من الفترة <span style="color: red">{{ $start }}</span> إلي <span style="color: red">{{ $end }}</span> هي <span style="color: green;font-size: 20px;background-color: yellow">{{ $cost }}$</span></h4>
+                                <h4 class="card-title"><i class="la la-dollar"></i> أجمالي تكلفة الصيانة من الفترة <span style="color: red">{{ $start }}</span> إلي <span style="color: red">{{ $end }}</span> هي <span style="color: green;font-size: 20px;background-color: yellow;font-weight: bold">{{ $cost }}$</span></h4>
                                 <a class="heading-elements-toggle"><i
                                         class="la la-ellipsis-v font-medium-3"></i></a>
                                 <div class="heading-elements">
