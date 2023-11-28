@@ -57,10 +57,15 @@ class HoursController extends Controller
         $hours_used = $request['card_hours'] - $card->oil_hours;
         $remaining_hours = $duration_of_oil - $hours_used;
         $card->update([
-            'card_hours' => $request['card_hours'],
+            'card_hours' => $request['card_hours']
+
+        ]);
+        if($card->oil_hours !== NULL){
+        $card->update([
             'hours_used' => $hours_used,
             'remaining_hours' => $remaining_hours
         ]);
+        }
         Hour::create([
             'card_hours' => $request['card_hours'],
             'date' => $request['date'],
