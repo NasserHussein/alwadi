@@ -20,4 +20,7 @@ class Maintenance extends Model
         'updated_at',
         'card_id'
     ];
+    public function card(){
+        return $this->belongsTo('App\Models\Admin\Card');
+    }
 }

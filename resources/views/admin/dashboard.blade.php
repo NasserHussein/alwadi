@@ -94,10 +94,10 @@
         <div class="col-12 col-xl-6">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Sell Order</h4>
+                    <h4 class="card-title">تكلفة صيانة المعداد</h4>
                     <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                     <div class="heading-elements">
-                        <p class="text-muted">Total BTC available: 6542.56585</p>
+                        <p class="text-muted">اجمالي تكلفة الصيانة للمعداد: <span style="color: red">{{ App\Models\Admin\Maintenance::sum('cost') }}$</span></p>
                     </div>
                 </div>
                 <div class="card-content">
@@ -105,42 +105,28 @@
                         <table class="table table-de mb-0">
                             <thead>
                             <tr>
-                                <th>Price per BTC</th>
-                                <th>BTC Ammount</th>
-                                <th>Total($)</th>
+                                <th>نوع المعدة</th>
+                                <th>رقم المعدة</th>
+                                <th>إجمالي تكلفة الصيانة</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr class="bg-success bg-lighten-5">
-                                <td>10583.4</td>
-                                <td><i class="cc BTC-alt"></i> 0.45000000</td>
-                                <td>$ 4762.53</td>
-                            </tr>
+                                @foreach (App\Models\Admin\Card::with('Maintenances')->get() as $card_cost)
+                                @if($card_cost->Maintenances->sum('cost') !== 0)
+
+
                             <tr>
-                                <td>10583.5</td>
-                                <td><i class="cc BTC-alt"></i> 0.04000000</td>
-                                <td>$ 423.34</td>
+                                <td>{{ $card_cost->name }}</td>
+                                <td>{{ $card_cost->code }}</td>
+                                <td>{{ $card_cost->Maintenances->sum('cost') }}</td>
                             </tr>
-                            <tr>
-                                <td>10583.7</td>
-                                <td><i class="cc BTC-alt"></i> 0.25100000</td>
-                                <td>$ 2656.51</td>
-                            </tr>
-                            <tr>
-                                <td>10583.8</td>
-                                <td><i class="cc BTC-alt"></i> 0.35000000</td>
-                                <td>$ 3704.33</td>
-                            </tr>
-                            <tr>
-                                <td>10595.7</td>
-                                <td><i class="cc BTC-alt"></i> 0.30000000</td>
-                                <td>$ 3178.71</td>
-                            </tr>
-                            <tr class="bg-danger bg-lighten-5">
+                            @endif
+                                @endforeach
+{{--                             <tr class="bg-danger bg-lighten-5" class="bg-success bg-lighten-5">
                                 <td>10599.5</td>
                                 <td><i class="cc BTC-alt"></i> 0.02000000</td>
                                 <td>$ 211.99</td>
-                            </tr>
+                            </tr> --}}
                             </tbody>
                         </table>
                     </div>
@@ -153,7 +139,7 @@
                     <h4 class="card-title">الوقت المتبقي للمعدة لتغيير الزيت</h4>
                     <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                     <div class="heading-elements">
-                        <p class="text-muted">عدد المعداد المقتربة لتغيير الزيت: {{ App\Models\Admin\Card::where('remaining_hours', '<=' , 50)->count() }}</p>
+                        <p class="text-muted">عدد المعداد المقتربة لتغيير الزيت: <span style="color: rgb(236, 6, 160);font-size:17px">{{ App\Models\Admin\Card::where('remaining_hours', '<=' , 50)->count() }}</span></p>
                     </div>
                 </div>
                 <div class="card-content">
@@ -167,7 +153,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                                @foreach ( App\Models\Admin\Card::where('remaining_hours', '<=' , 50)->get()  as $card_oil)
+                                @foreach ( App\Models\Admin\Card::where('remaining_hours', '<=' , 50)->get()->sortBy('remaining_hours')  as $card_oil)
                             <tr @if($card_oil->remaining_hours <= 0) class="bg-danger bg-lighten-5" @endif>
                                 <td>{{ $card_oil->name }}</td>
                                 <td>{{ $card_oil->code }}</td>
