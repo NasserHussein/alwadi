@@ -53,7 +53,7 @@
 
                     <li class="dropdown dropdown-notification nav-item dropdown-notifications">
                         <a class="nav-link nav-link-label" href="#" data-toggle="dropdown"><i class="ficon ft-bell"></i>
-                            <span class="badge badge-pill badge-default badge-success badge-default badge-up badge-glow notif-count" data-count=""></span>
+                            <span class="badge badge-pill badge-default badge-danger badge-default badge-up badge-glow notif-count" data-count="">{{ App\Models\Admin\Card::where('remaining_hours', '<=' , 0)->count() }}</span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
                             <li class="dropdown-menu-header">
@@ -61,38 +61,29 @@
                                     <span class="grey darken-2">الاشعارات</span>
 
                                 </h6>
-                               <a href=""> <span
-                                    class="notification-tag badge badge-default badge-danger float-right m-0">أزالة جميع الاشعارات</span></a>
+                               {{-- <a href=""> <span
+                                    class="notification-tag badge badge-default badge-danger float-right m-0">أزالة جميع الاشعارات</span></a> --}}
                             </li>
+                            @foreach ( App\Models\Admin\Card::where('remaining_hours', '<=' , 0)->get()->sortBy('remaining_hours')  as $card_oil)
                             <li class="scrollable-container media-list w-100">
-
-
-                            <a href="" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">×</span>
-                            </a>
-
-                            <a href="">
                                     <div class="media">
-                                        <div class="media-left align-self-center"><i
-                                            class="ft-check-circle icon-bg-circle bg-cyan"></i></div>
+                                        <div class="media-left align-self-center"><i style="background-color: #FFC107"
+                                            class="ft-filter icon-bg-circle "></i></div>
                                         <div class="media-body">
-                                            <h6 class="media-heading">asdasdasda</h6>
-                                            <p><div style="word-wrap: break-word;width:260px;"></div></p>
+                                            <h5 style="color: blue" class="media-heading">{{ $card_oil->name }} رقم {{ $card_oil->code }}</h5>
+                                            <p>تحتاج تغيير زيت ضروري</p>
                                             <small>
-                                                <time class="media-meta text-muted"
-                                                      datetime="2015-06-11T18:29:20+08:00">
+                                                <time style="font-size: 15px" class="media-meta text-muted danger"
+                                                      datetime="2015-06-11T18:29:20+08:00">{{ $card_oil->remaining_hours }} ساعة
                                                 </time>
                                             </small>
                                         </div>
                                     </div>
-                                </a>
                             </li>
-                            <li class="dropdown-menu-footer"><a class="dropdown-item text-muted text-center"
-                                                                href="javascript:void(0)">Read all notifications</a>
-                            </li>
+                            @endforeach
                         </ul>
                     </li>
-                    <li class="dropdown dropdown-notification nav-item">
+{{--                     <li class="dropdown dropdown-notification nav-item">
                         <a class="nav-link nav-link-label" href="#" data-toggle="dropdown"><i
                             class="ficon ft-mail"> </i>
                              <span class="badge badge-pill badge-default badge-warning badge-default badge-up badge-glow notif-count" data-count=""></span>
@@ -132,7 +123,7 @@
                                                                 href="">عرض كل الرسائل النشطة</a></li>
                         </ul>
 
-                    </li>
+                    </li> --}}
                 </ul>
             </div>
         </div>

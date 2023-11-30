@@ -17,12 +17,11 @@
                                 <h1><i class="cc BTC warning font-large-2" title="BTC"></i></h1>
                             </div>
                             <div class="col-5 pl-2">
-                                <h4>BTC</h4>
-                                <h6 class="text-muted">Bitcoin</h6>
+                                <h4>تكاليف الصيانة</h4>
                             </div>
                             <div class="col-5 text-right">
-                                <h4>$9,980</h4>
-                                <h6 class="success darken-4">31% <i class="la la-arrow-up"></i></h6>
+                                <h4>{{ App\Models\Admin\Maintenance::sum('cost') }} $</h4>
+                                <h6 class="danger darken-4">31% <i class="la la-arrow-down"></i></h6>
                             </div>
                         </div>
                     </div>
@@ -43,11 +42,11 @@
                                 <h1><i class="cc ETH blue-grey lighten-1 font-large-2" title="ETH"></i></h1>
                             </div>
                             <div class="col-5 pl-2">
-                                <h4>ETH</h4>
-                                <h6 class="text-muted">Ethereum</h6>
+                                <h5>المعدات المقتربة</h5>
+                                <h5 class="text-muted">لتغيير الزيت</h5>
                             </div>
                             <div class="col-5 text-right">
-                                <h4>$944</h4>
+                                <h2>{{ App\Models\Admin\Card::where('remaining_hours', '<=' , 50)->count() }}</h2>
                                 <h6 class="success darken-4">12% <i class="la la-arrow-up"></i></h6>
                             </div>
                         </div>
@@ -69,12 +68,12 @@
                                 <h1><i class="cc XRP info font-large-2" title="XRP"></i></h1>
                             </div>
                             <div class="col-5 pl-2">
-                                <h4>XRP</h4>
-                                <h6 class="text-muted">Balance</h6>
+                                <h4>عدد المعداد</h4>
+                                <h6 class="text-muted">Card ID</h6>
                             </div>
                             <div class="col-5 text-right">
-                                <h4>$1.2</h4>
-                                <h6 class="danger">20% <i class="la la-arrow-down"></i></h6>
+                                <h2>{{ App\Models\Admin\Card::count() }}</h2>
+
                             </div>
                         </div>
                     </div>
@@ -111,22 +110,18 @@
                             </tr>
                             </thead>
                             <tbody>
-                                @foreach (App\Models\Admin\Card::with('Maintenances')->get() as $card_cost)
-                                @if($card_cost->Maintenances->sum('cost') !== 0)
-
-
                             <tr>
-                                <td>{{ $card_cost->name }}</td>
-                                <td>{{ $card_cost->code }}</td>
-                                <td>{{ $card_cost->Maintenances->sum('cost') }}</td>
+                                <td>234234234</td>
+                                <td>dsfdsf</td>
+                                <td>dfsdf</td>
                             </tr>
-                            @endif
-                                @endforeach
-{{--                             <tr class="bg-danger bg-lighten-5" class="bg-success bg-lighten-5">
+                            {{--
+                            <tr class="bg-danger bg-lighten-5" class="bg-success bg-lighten-5">
                                 <td>10599.5</td>
                                 <td><i class="cc BTC-alt"></i> 0.02000000</td>
                                 <td>$ 211.99</td>
-                            </tr> --}}
+                            </tr>
+                            --}}
                             </tbody>
                         </table>
                     </div>
@@ -171,6 +166,46 @@
     <!-- Active Orders -->
     <div class="row">
         <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h1 style="font-size: 20px"  class="card-title">تكلفة صيانة المعداد</h1>
+                    <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                    <div style="font-size: 20px" class="heading-elements">
+                        <p class="text-muted">اجمالي تكلفة الصيانة للمعداد: <span style="color: red">{{ App\Models\Admin\Maintenance::sum('cost') }}$</span></p>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <div class="table-responsive">
+                        <table class="display nowrap table-striped table-bordered scroll-horizontal table table-de mb-0" style="width:auto;text-align: center">
+                            <thead>
+                            <tr>
+                                <th>نوع المعدة</th>
+                                <th>رقم المعدة</th>
+                                <th>رقم المسلسل الخاص بالمعدة</th>
+                                <th>بداية تاريخ المحاسبة</th>
+                                <th>نهاية تاريخ المحاسبة</th>
+                                <th>التكلفة الكلية<br>لصيانة المعدة</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (App\Models\Admin\Card::all() as $card_cost)
+                                @if($card_cost->Maintenances->sum('cost') !== 0)
+                            <tr>
+                                <td style="color: blue">{{ $card_cost->name }}</td>
+                                <td style="font-size: 20px" class="warning">{{ $card_cost->code }}</td>
+                                <td style="font-size: 15px" class="success">{{ $card_cost->serial_no }}</td>
+                                <td style="font-size: 20px" class="info">{{ $card_cost->Maintenances->min('date') }}</td>
+                                <td style="font-size: 20px" class="info">{{ $card_cost->Maintenances->max('date') }}</td>
+                                <td style="font-size: 20px" class="danger">{{ $card_cost->Maintenances->sum('cost') }} $</td>
+                            </tr>
+                                @endif
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+{{--
             <div class="card">
                 <div class="card-header">
                     <h4 class="card-title">Active Order</h4>
@@ -274,6 +309,7 @@
                     </div>
                 </div>
             </div>
+  --}}
         </div>
     </div>
 </div>
