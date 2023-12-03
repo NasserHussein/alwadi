@@ -85,3 +85,5 @@ Route::group(['prefix'=>'Cost_Equipments'],function(){
 //return Card::whereBetween('date_of_start', ['2000-02-04', '2000-02-10'])->get();
 //return Card::latest()->first()->code;
 //return $month= Card::where('date_of_start', '>', Carbon::now()->startOfMonth()) ->where('date_of_start', '<', Carbon::now()->endOfMonth()) ->get();
+/*         $time = strtotime("30-10-2011");
+        $final = date("d-m-Y", strtotime("+2 month", $time)); */

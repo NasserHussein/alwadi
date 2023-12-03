@@ -93,10 +93,10 @@
         <div class="col-12 col-xl-6">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">تكلفة صيانة المعداد</h4>
+                    <h4 class="card-title">معدات لم يتم تسجيل تغيير الزيت لها</h4>
                     <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                     <div class="heading-elements">
-                        <p class="text-muted">اجمالي تكلفة الصيانة للمعداد: <span style="color: red">{{ App\Models\Admin\Maintenance::sum('cost') }}$</span></p>
+                        <p class="text-muted">عدد المعدات: <span style="color: red">{{ $cards_oils->count() }}</span></p>
                     </div>
                 </div>
                 <div class="card-content">
@@ -110,11 +110,15 @@
                             </tr>
                             </thead>
                             <tbody>
+                                @isset($cards_oils)
+                                @foreach ($cards_oils as $card_oil)
                             <tr>
-                                <td>234234234</td>
-                                <td>dsfdsf</td>
-                                <td>dfsdf</td>
+                                <td style="color: blue">{{ $card_oil->name }}</td>
+                                <td style="color: blueviolet">{{ $card_oil->code }}</td>
+                                <td style="color: green">لم يتم تسجل زيت للمعدة</td>
                             </tr>
+                                @endforeach
+                                @endisset
                             {{--
                             <tr class="bg-danger bg-lighten-5" class="bg-success bg-lighten-5">
                                 <td>10599.5</td>
