@@ -53,7 +53,9 @@ class HoursController extends Controller
         }else{
         $count = $request['card_hours'] - $last_hour;
         }
+    /////////////////////////////  change OOOOOile   ///////////////////////////////////////////////
         $duration_of_oil =200;
+    /////////////////////////////  change OOOOOile   ///////////////////////////////////////////////
         $hours_used = $request['card_hours'] - $card->oil_hours;
         $remaining_hours = $duration_of_oil - $hours_used;
         $card->update([

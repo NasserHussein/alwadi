@@ -154,7 +154,9 @@ class CardsController extends Controller
     if(!$card){
         return abort(403);
     }
+    /////////////////////////////  change OOOOOile   ///////////////////////////////////////////////
     $duration_of_oil =200;
+    /////////////////////////////  change OOOOOile   ///////////////////////////////////////////////
     $card->update([
         'date_of_oil' => $request['date_of_oil'],
         'oil_hours' => $request['oil_hours'],
