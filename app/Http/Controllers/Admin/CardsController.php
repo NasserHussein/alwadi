@@ -155,7 +155,13 @@ class CardsController extends Controller
         return abort(403);
     }
     /////////////////////////////  change OOOOOile   ///////////////////////////////////////////////
-    $duration_of_oil =200;
+    if($card->name == 'كسارة'){
+        $duration_of_oil =1000;
+    }elseif($card->name == 'ماكينة ابحاث'){
+        $duration_of_oil =200;
+    }else{
+    $duration_of_oil =120;
+    }
     /////////////////////////////  change OOOOOile   ///////////////////////////////////////////////
     $card->update([
         'date_of_oil' => $request['date_of_oil'],
