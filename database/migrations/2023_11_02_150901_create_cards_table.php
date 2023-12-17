@@ -39,6 +39,10 @@ return new class extends Migration
             $table->string('oil_hours')->nullable();
             $table->integer('hours_used')->nullable();
             $table->integer('remaining_hours')->nullable();
+            $table->date('date_of_oil_gearbox')->nullable();
+            $table->string('oil_hours_gearbox')->nullable();
+            $table->integer('hours_used_gearbox')->nullable();
+            $table->integer('remaining_hours_gearbox')->nullable();
             $table->timestamps();
         });
     }
