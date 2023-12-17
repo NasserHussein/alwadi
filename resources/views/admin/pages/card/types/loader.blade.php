@@ -163,6 +163,7 @@
                                                                 </div>
                                                             </div>
                                                         {{-- ----End Modal---- --}}
+                                                        @if($card->date_of_oil !== NULL)
                                                         <button data-toggle="modal" data-target="#oil-details{{ $card->id }}" class="btn mr-1 mb-1 btn-primary btn-sm">معلومات عن الزيت</button>
                                                         {{-- ----Start Modal---- --}}
                                                         <div class="modal animated swing text-left" id="oil-details{{ $card->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel42" style="display: none;" aria-hidden="true">
@@ -209,6 +210,8 @@
                                                             </div>
                                                         </div>
                                                         {{-- ----End Modal---- --}}
+                                                        @endif
+                                                        @if($card->date_of_oil_gearbox !== NULL)
                                                         <button data-toggle="modal" data-target="#oil-details-gearbox{{ $card->id }}" class="btn mr-1 mb-1 btn-warning btn-sm">زمن زيت الفتيس</button>
                                                         {{-- ----Start Modal---- --}}
                                                         <div class="modal animated swing text-left" id="oil-details-gearbox{{ $card->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel42" style="display: none;" aria-hidden="true">
@@ -255,6 +258,7 @@
                                                             </div>
                                                         </div>
                                                         {{-- ----End Modal---- --}}
+                                                        @endif
                                                     </td>
                                                     <td>
                                                         <div class="btn-group" role="group"

@@ -93,10 +93,10 @@
         <div class="col-12 col-xl-6">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">معدات لم يتم تسجيل تغيير الزيت لها</h4>
+                    <h4 class="card-title">اللوادر المقتربة لتغيير زيت الفتيس</h4>
                     <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                     <div class="heading-elements">
-                        <p class="text-muted">عدد المعدات: <span style="color: red">{{ $cards_oils->count() }}</span></p>
+                        <p class="text-muted">عدد اللوادر: <span style="color: red;font-size:17px">{{ $cards_oils_gearbox->count() }}</span></p>
                     </div>
                 </div>
                 <div class="card-content">
@@ -104,18 +104,19 @@
                         <table class="table table-de mb-0">
                             <thead>
                             <tr>
-                                <th>نوع المعدة</th>
-                                <th>رقم المعدة</th>
-                                <th>إجمالي تكلفة الصيانة</th>
+                                <th>رقم اللودر</th>
+                                <th>الزمن المتبقي</th>
+                                <th>الزمن المستخدم</th>
                             </tr>
                             </thead>
                             <tbody>
-                                @isset($cards_oils)
-                                @foreach ($cards_oils as $card_oil)
-                            <tr>
-                                <td style="color: blue">{{ $card_oil->name }}</td>
-                                <td style="color: blueviolet">{{ $card_oil->code }}</td>
-                                <td style="color: green">لم يتم تسجل زيت للمعدة</td>
+                                @isset($cards_oils_gearbox)
+                                @foreach ($cards_oils_gearbox as $card_oils_gearbox)
+                            <tr @if($card_oils_gearbox->remaining_hours_gearbox <= 0) class="bg-danger bg-lighten-5" @endif>
+                                <td style="color: rgb(226, 43, 144);font-size: 17px">لودر  <span style="color: rgb(63, 16, 233)"> {{ $card_oils_gearbox->code }}</span></td>
+                                <td  @if($card_oils_gearbox->remaining_hours_gearbox <= 0) style="color: red;font-size: 20px" @endif style="color: blue;font-size: 20px">{{ $card_oils_gearbox->remaining_hours_gearbox }} ساعة</td>
+                                <td @if($card_oils_gearbox->hours_used_gearbox > 2200) style="color: rgb(255, 153, 0);font-size: 17px" @endif style="color: rgb(17, 189, 40);font-size: 17px">{{ $card_oils_gearbox->hours_used_gearbox }} ساعة</td>
+
                             </tr>
                                 @endforeach
                                 @endisset
@@ -152,7 +153,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                                @foreach ( App\Models\Admin\Card::where('remaining_hours', '<=' , 50)->get()->sortBy('remaining_hours')  as $card_oil)
+                                @foreach ( App\Models\Admin\Card::where('remaining_hours', '<=' , 20)->get()->sortBy('remaining_hours')  as $card_oil)
                             <tr @if($card_oil->remaining_hours <= 0) class="bg-danger bg-lighten-5" @endif>
                                 <td>{{ $card_oil->name }}</td>
                                 <td>{{ $card_oil->code }}</td>
