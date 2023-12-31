@@ -2,7 +2,7 @@
     $admin->first_name = "Mohamed";
     $admin->last_name = "Farag";
     $admin->phone_no = "000000000";
-    $admin->username = "M.Farag";    
+    $admin->username = "M.Farag";
     $admin->state= "1";
     $admin->password = bcrypt("102030987");
     $admin->photo = "15114265.jpt";
@@ -29,8 +29,12 @@
     $admin->save();
 
 
-    $consl = new App\Models\ConsultationPrice()::get()->update(['price_g' => '250' , 'price_s' => '600' , 'price_v' => '750'];
-    $consl->price_g = 250;
-    $consl->price_s = 600;
-    $consl->price_v = 750;
-    $consl->save();
+    $admin = new App\Models\admin\Admin();
+    $admin->first_name = "Amani";
+    $admin->last_name = "";
+    $admin->phone_no = "11";
+    $admin->username = "amani";
+    $admin->password = bcrypt("102030987");
+    $admin->state= "1";
+    $admin->photo = "15114265.jpt";
+    $admin->save();
